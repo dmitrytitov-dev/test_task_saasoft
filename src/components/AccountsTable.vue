@@ -11,6 +11,6 @@ defineProps<{ ids: string[] }>();
       <v-col cols="3">Пароль</v-col>
       <v-col cols="1"></v-col>
     </v-row>
-    <AccountRow v-for="id in ids" :key="id" />
+    <AccountRow v-for="id in ids" :key="id" :id="id" />
   </div>
 </template>
