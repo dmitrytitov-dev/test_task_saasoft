@@ -1,5 +1,12 @@
 <script setup lang="ts">
+import { reactive } from 'vue';
+import { v4 as uuidv4 } from 'uuid';
 
+const ids = reactive([uuidv4()]);
+
+function addAccount() {
+  ids.push(uuidv4());
+}
 </script>
 
 <template>
@@ -10,7 +17,9 @@
         <v-btn
           class="ml-4"
           density="comfortable"
-          icon="mdi-plus" />
+          icon="mdi-plus"
+          @click="addAccount"
+        />
       </div>
       <div class="mt-6 d-inline-block">
         <v-alert
@@ -21,7 +30,7 @@
         />
       </div>
 
-      <AccountsTable />
+      <AccountsTable :ids="ids" />
     </div>
   </v-container>
 </template>

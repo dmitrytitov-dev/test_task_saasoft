@@ -1,3 +1,7 @@
+<script setup lang="ts">
+defineProps<{ ids: string[] }>();
+</script>
+
 <template>
   <div>
     <v-row class="mt-6" dense>
@@ -7,6 +11,6 @@
       <v-col cols="3">Пароль</v-col>
       <v-col cols="1"></v-col>
     </v-row>
-    <AccountRow />
+    <AccountRow v-for="id in ids" :key="id" />
   </div>
 </template>
