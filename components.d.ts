@@ -8,5 +8,8 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AccountRow: typeof import('./src/components/AccountRow.vue')['default']
+    AccountsPage: typeof import('./src/components/AccountsPage.vue')['default']
+    AccountsTable: typeof import('./src/components/AccountsTable.vue')['default']
   }
 }
