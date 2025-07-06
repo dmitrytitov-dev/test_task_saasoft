@@ -1,7 +1,7 @@
 import type { Account } from '@/models/account.ts';
 
 /// Predefined accounts for demonstration purpose
-export default [
+const predefinedAccounts: Account[] = [
   {
     id: '7a2d2df4-ad91-45a0-bcd1-732b8abfa3ee',
     type: 'local',
@@ -31,3 +31,9 @@ export default [
     labels: [],
   },
 ] as Account[];
+
+const predefinedAccountsMap: Record<string, Account> = Object.fromEntries(
+  predefinedAccounts.map(account => [account.id, account]),
+);
+
+export default predefinedAccountsMap;
