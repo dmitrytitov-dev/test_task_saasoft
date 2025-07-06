@@ -1,14 +1,18 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { ref } from 'vue';
 import { v4 as uuidv4 } from 'uuid';
 import { useAccountsStore } from '@/stores/accounts.ts';
 
 const accountsStore = useAccountsStore();
 
-const ids = reactive(Object.keys(accountsStore.items));
+const ids = ref(Object.keys(accountsStore.items));
 
 function addAccount() {
-  ids.push(uuidv4());
+  ids.value.push(uuidv4());
+}
+
+function deleteAccount(id: string) {
+  ids.value = ids.value.filter(item => item !== id);
 }
 </script>
 
@@ -33,7 +37,7 @@ function addAccount() {
         />
       </div>
 
-      <AccountsTable :ids="ids" />
+      <AccountsTable :ids="ids" @delete="deleteAccount" />
     </div>
   </v-container>
 </template>

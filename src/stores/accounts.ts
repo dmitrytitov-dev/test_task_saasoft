@@ -12,7 +12,7 @@ export const useAccountsStore = defineStore('accounts', {
     addOrUpdate(account: Account) {
       this.items[account.id] = account;
     },
-    remove(id: string) {
+    delete(id: string) {
       delete this.items[id];
     },
   },

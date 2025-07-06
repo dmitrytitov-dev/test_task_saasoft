@@ -7,6 +7,7 @@ const LOGIN_MAX_LENGTH = 100;
 const PASSWORD_MAX_LENGTH = 100;
 
 const props = defineProps<{ id: string }>();
+const emit = defineEmits<{ (event: 'delete', value: string): void; }>();
 
 const accountsStore = useAccountsStore();
 
@@ -46,6 +47,11 @@ function updateAccount() {
     labels: labelsArray,
   };
   accountsStore.addOrUpdate(accountStore);
+}
+
+function deleteAccount() {
+  accountsStore.delete(props.id);
+  emit('delete', props.id);
 }
 </script>
 
@@ -112,6 +118,7 @@ function updateAccount() {
         class="mt-1"
         icon="mdi-delete"
         variant="text"
+        @click="deleteAccount"
       />
     </v-col>
   </v-row>
