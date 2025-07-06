@@ -10,6 +10,7 @@ import { fileURLToPath, URL } from 'node:url';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/test_task_saasoft/',
   plugins: [
     Vue({
       template: { transformAssetUrls },
